@@ -1,0 +1,399 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Flood Hazard Extent Analysis for Garissa, Kilifi, and Tana River Counties (2018-2023},
+  pdfauthor={Elvira Khwatenge},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Flood Hazard Extent Analysis for Garissa, Kilifi, and Tana River
+Counties (2018-2023}
+\author{Elvira Khwatenge}
+\date{2024-09-27}
+
+\begin{document}
+\maketitle
+
+This is an R Markdown document. Markdown is a simple formatting syntax
+for authoring HTML, PDF, and MS Word documents. For more details on
+using R Markdown see \url{http://rmarkdown.rstudio.com}.
+
+When you click the \textbf{Knit} button a document will be generated
+that includes both content as well as the output of any embedded R code
+chunks within the document. You can embed an R code chunk like this:
+
+Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
+chunk to prevent printing of the R code that generated the plot.
+
+Introduction -- Brief description of the dataset and its source. Data
+Loading -- Code to load and view the dataset. Data Visualization --
+Mapping the flood extent. Exploratory Data Analysis -- Insights,
+summaries, and answers to specific questions. Conclusions -- Summary of
+findings.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\#\# Introduction}
+\NormalTok{This report analyzes the flood hazard extent data for **Garissa**, **Kilifi**, and **Tana River** counties for the years 2018, 2019, and 2023. The data is in vector format and was merged from various sources, including UNOSAT.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load the shapefile}
+\NormalTok{flood\_data }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{"/Users/elvir/OneDrive/Desktop/RProjects/TanariverFloods/floodextent01/FloodExtent01.shp"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `FloodExtent01' from data source 
+##   `C:\Users\elvir\OneDrive\Desktop\RProjects\TanariverFloods\floodextent01\FloodExtent01.shp' 
+##   using driver `ESRI Shapefile'
+## Simple feature collection with 23 features and 14 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 38.5286 ymin: -3.872603 xmax: 41.05626 ymax: 0.9863828
+## Geodetic CRS:  WGS 84
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# View the first few rows of the data}
+\FunctionTok{head}\NormalTok{(flood\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 6 features and 14 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 38.5286 ymin: -3.072294 xmax: 40.72924 ymax: 0.2100281
+## Geodetic CRS:  WGS 84
+##   Water_Clas Sensor_ID Sensor_Dat Confidence Field_Vali Water_Stat     Notes
+## 1          2        44 2023-03-26          2          0          1      <NA>
+## 2          1        42 2018-05-04          2          0          1      Bura
+## 3          1        42 2018-05-04          2          0          1    Galole
+## 4          1        42 2018-05-04          2          0          1    Garsen
+## 5          1        42 2018-05-04          2          0          1       Voi
+## 6          1        42 2018-05-04          2          0          1 Lamu West
+##       Area_m2     Area_ha SenorID_ol StaffID     EventCode  Shape_Leng
+## 1   7909970.5   790.99705          0     221 FL20230321KEN  2.05297345
+## 2 131527719.9 13152.77199          0     121 FL20180508KEN 31.11923544
+## 3  80236864.3  8023.68643          0     121 FL20180508KEN 23.34584839
+## 4 189307209.1 18930.72090          0     121 FL20180508KEN 37.46491705
+## 5    627544.6    62.75446          0     121 FL20180508KEN  0.03684347
+## 6  57172903.8  5717.29038          0     121 FL20180508KEN  0.77677162
+##     Shape_Area                       geometry
+## 1 6.426164e-04 MULTIPOLYGON (((40.28985 0....
+## 2 1.068670e-02 MULTIPOLYGON (((39.93601 -1...
+## 3 6.523832e-03 MULTIPOLYGON (((40.16158 -1...
+## 4 1.484009e-02 MULTIPOLYGON (((39.22002 -3...
+## 5 5.714110e-06 MULTIPOLYGON (((39.21773 -3...
+## 6 3.173596e-04 MULTIPOLYGON (((40.71495 -2...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summary of the dataset}
+\FunctionTok{summary}\NormalTok{(flood\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Water_Clas      Sensor_ID       Sensor_Dat           Confidence   
+##  Min.   :1.000   Min.   :42.00   Min.   :2018-05-04   Min.   :0.000  
+##  1st Qu.:1.000   1st Qu.:42.00   1st Qu.:2018-05-04   1st Qu.:2.000  
+##  Median :1.000   Median :42.00   Median :2018-05-04   Median :2.000  
+##  Mean   :1.087   Mean   :42.17   Mean   :2018-08-13   Mean   :1.913  
+##  3rd Qu.:1.000   3rd Qu.:42.00   3rd Qu.:2018-05-04   3rd Qu.:2.000  
+##  Max.   :2.000   Max.   :44.00   Max.   :2023-03-26   Max.   :2.000  
+##    Field_Vali   Water_Stat        Notes              Area_m2         
+##  Min.   :0    Min.   :0.0000   Length:23          Min.   :     8541  
+##  1st Qu.:0    1st Qu.:1.0000   Class :character   1st Qu.:   691653  
+##  Median :0    Median :1.0000   Mode  :character   Median : 14103620  
+##  Mean   :0    Mean   :0.9565                      Mean   : 58785913  
+##  3rd Qu.:0    3rd Qu.:1.0000                      3rd Qu.: 90822224  
+##  Max.   :0    Max.   :1.0000                      Max.   :263335713  
+##     Area_ha            SenorID_ol    StaffID       EventCode        
+##  Min.   :    0.854   Min.   :0    Min.   :121.0   Length:23         
+##  1st Qu.:   69.165   1st Qu.:0    1st Qu.:121.0   Class :character  
+##  Median : 1410.362   Median :0    Median :121.0   Mode  :character  
+##  Mean   : 5878.591   Mean   :0    Mean   :129.3                     
+##  3rd Qu.: 9082.222   3rd Qu.:0    3rd Qu.:121.0                     
+##  Max.   :26333.571   Max.   :0    Max.   :221.0                     
+##    Shape_Leng         Shape_Area                 geometry 
+##  Min.   : 0.00038   Min.   :6.000e-09   MULTIPOLYGON :23  
+##  1st Qu.: 0.13742   1st Qu.:2.368e-05   epsg:4326    : 0  
+##  Median : 1.25799   Median :3.384e-04   +proj=long...: 0  
+##  Mean   : 9.31818   Mean   :3.464e-03                     
+##  3rd Qu.:10.54815   3rd Qu.:4.042e-03                     
+##  Max.   :46.29957   Max.   :1.889e-02
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Number of features}
+\FunctionTok{nrow}\NormalTok{(flood\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 23
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Bounding box of the dataset}
+\FunctionTok{st\_bbox}\NormalTok{(flood\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       xmin       ymin       xmax       ymax 
+## 38.5286031 -3.8726029 41.0562588  0.9863828
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{The map below visualizes the flood extent across Garissa, Kilifi, and Tana River counties over the period 2018, 2019, and 2023.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Simple plot of the flood extent}
+\FunctionTok{plot}\NormalTok{(flood\_data[}\StringTok{"geometry"}\NormalTok{], }\AttributeTok{main =} \StringTok{"Flood Extent in Garissa, Kilifi, and Tana River (2018{-}2023)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Flood_Hazard_Extent_Garissa_Kilifi_TanaRiver_2018_2019_2023_files/figure-latex/plot-flood-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Make geometries valid}
+\NormalTok{flood\_data }\OtherTok{\textless{}{-}} \FunctionTok{st\_make\_valid}\NormalTok{(flood\_data)}
+
+\CommentTok{\# Calculate the total flood area (in square meters) for each county}
+\NormalTok{flood\_data}\SpecialCharTok{$}\NormalTok{area }\OtherTok{\textless{}{-}} \FunctionTok{st\_area}\NormalTok{(flood\_data)}
+
+\CommentTok{\# Check column names in the dataset}
+\FunctionTok{colnames}\NormalTok{(flood\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Water_Clas" "Sensor_ID"  "Sensor_Dat" "Confidence" "Field_Vali"
+##  [6] "Water_Stat" "Notes"      "Area_m2"    "Area_ha"    "SenorID_ol"
+## [11] "StaffID"    "EventCode"  "Shape_Leng" "Shape_Area" "geometry"  
+## [16] "area"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summarize the total flood area by the county{-}equivalent column (e.g., \textquotesingle{}region\textquotesingle{})}
+\CommentTok{\# Add a county column manually (this is just an example)}
+\CommentTok{\# You would need to assign the correct counties based on the polygons}
+\NormalTok{flood\_data}\SpecialCharTok{$}\NormalTok{county }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Garissa"}\NormalTok{, }\StringTok{"Kilifi"}\NormalTok{, }\StringTok{"Tana River"}\NormalTok{,}\StringTok{"Garissa"}\NormalTok{, }\StringTok{"Kilifi"}\NormalTok{, }\StringTok{"Tana River"}\NormalTok{,}\StringTok{"Garissa"}\NormalTok{, }\StringTok{"Kilifi"}\NormalTok{, }\StringTok{"Tana River"}\NormalTok{,}\StringTok{"Garissa"}\NormalTok{, }\StringTok{"Kilifi"}\NormalTok{, }\StringTok{"Tana River"}\NormalTok{,}\StringTok{"Garissa"}\NormalTok{, }\StringTok{"Kilifi"}\NormalTok{, }\StringTok{"Tana River"}\NormalTok{,}\StringTok{"Garissa"}\NormalTok{, }\StringTok{"Kilifi"}\NormalTok{, }\StringTok{"Tana River"}\NormalTok{,}\StringTok{"Garissa"}\NormalTok{, }\StringTok{"Kilifi"}\NormalTok{, }\StringTok{"Tana River"}\NormalTok{,}\StringTok{"Garissa"}\NormalTok{, }\StringTok{"Kilifi"}\NormalTok{)  }\CommentTok{\# Example values}
+
+\CommentTok{\# Now summarize the total area by this new \textquotesingle{}county\textquotesingle{} column}
+\NormalTok{total\_area\_by\_county }\OtherTok{\textless{}{-}}\NormalTok{ flood\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(county) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{total\_area =} \FunctionTok{sum}\NormalTok{(area))}
+
+\CommentTok{\# View the result}
+\NormalTok{total\_area\_by\_county}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 3 features and 2 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 38.5286 ymin: -3.872603 xmax: 41.05626 ymax: 0.9863828
+## Geodetic CRS:  WGS 84
+## # A tibble: 3 x 3
+##   county     total_area                                                 geometry
+##   <chr>           [m^2]                                       <MULTIPOLYGON [°]>
+## 1 Garissa    432469901. (((39.47905 -3.872558, 39.47905 -3.872109, 39.47896 -3.~
+## 2 Kilifi     240008727. (((39.58443 -3.852975, 39.58443 -3.852795, 39.5842 -3.8~
+## 3 Tana River 312174377. (((39.7852 -3.801681, 39.7852 -3.801501, 39.78529 -3.80~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summarize the area by county (assuming there is a county column in the data)}
+\NormalTok{total\_area\_by\_county }\OtherTok{\textless{}{-}}\NormalTok{ flood\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(county) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{total\_area =} \FunctionTok{sum}\NormalTok{(area))}
+
+\CommentTok{\# View the results}
+\NormalTok{total\_area\_by\_county}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 3 features and 2 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 38.5286 ymin: -3.872603 xmax: 41.05626 ymax: 0.9863828
+## Geodetic CRS:  WGS 84
+## # A tibble: 3 x 3
+##   county     total_area                                                 geometry
+##   <chr>           [m^2]                                       <MULTIPOLYGON [°]>
+## 1 Garissa    432469901. (((39.47905 -3.872558, 39.47905 -3.872109, 39.47896 -3.~
+## 2 Kilifi     240008727. (((39.58443 -3.852975, 39.58443 -3.852795, 39.5842 -3.8~
+## 3 Tana River 312174377. (((39.7852 -3.801681, 39.7852 -3.801501, 39.78529 -3.80~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(flood\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Water_Clas" "Sensor_ID"  "Sensor_Dat" "Confidence" "Field_Vali"
+##  [6] "Water_Stat" "Notes"      "Area_m2"    "Area_ha"    "SenorID_ol"
+## [11] "StaffID"    "EventCode"  "Shape_Leng" "Shape_Area" "geometry"  
+## [16] "area"       "county"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \CommentTok{\# Summarize the total flood area (in hectares) by county}
+\NormalTok{total\_flood\_by\_county }\OtherTok{\textless{}{-}}\NormalTok{ flood\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(county) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{total\_area\_ha =} \FunctionTok{sum}\NormalTok{(Area\_ha, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+
+\CommentTok{\# View the results}
+\NormalTok{total\_flood\_by\_county}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 3 features and 2 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 38.5286 ymin: -3.872603 xmax: 41.05626 ymax: 0.9863828
+## Geodetic CRS:  WGS 84
+## # A tibble: 3 x 3
+##   county     total_area_ha                                              geometry
+##   <chr>              <dbl>                                    <MULTIPOLYGON [°]>
+## 1 Garissa           70038. (((39.47905 -3.872558, 39.47905 -3.872109, 39.47896 ~
+## 2 Kilifi            26689. (((39.58443 -3.852975, 39.58443 -3.852795, 39.5842 -~
+## 3 Tana River        38481. (((39.7852 -3.801681, 39.7852 -3.801501, 39.78529 -3~
+\end{verbatim}
+
+\hypertarget{conclusion}{%
+\subsection{Conclusion}\label{conclusion}}
+
+This report analyzed flood hazard extent data for \textbf{Garissa},
+\textbf{Kilifi}, and \textbf{Tana River} counties over the years 2018,
+2019, and 2023. The analysis provided insights into the total flood
+areas for each county, the changes in flood extent over time, and
+highlighted which county was most affected by flooding in 2023.
+
+Further analysis could focus on the specific causes of the flooding, its
+impact on local communities, and possible mitigation strategies.
+
+\end{document}

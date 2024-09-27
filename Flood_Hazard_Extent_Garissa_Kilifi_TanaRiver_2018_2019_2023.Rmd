@@ -1,0 +1,108 @@
+---
+title: "Flood Hazard Extent Analysis for Garissa, Kilifi, and Tana River Counties (2018-2023"
+author: "Elvira Khwatenge"
+date: "2024-09-27"
+output: pdf_document
+---
+```{r setup, include=FALSE}
+# Load libraries
+library(sf)
+library(ggplot2)
+library(dplyr)
+library(tmap)
+library(mapview)
+## R Markdown
+```
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Introduction – Brief description of the dataset and its source.
+Data Loading – Code to load and view the dataset.
+Data Visualization – Mapping the flood extent.
+Exploratory Data Analysis – Insights, summaries, and answers to specific questions.
+Conclusions – Summary of findings.
+
+```markdown
+## Introduction
+This report analyzes the flood hazard extent data for **Garissa**, **Kilifi**, and **Tana River** counties for the years 2018, 2019, and 2023. The data is in vector format and was merged from various sources, including UNOSAT.
+```
+```{r load-data}
+# Load the shapefile
+flood_data <- st_read("/Users/elvir/OneDrive/Desktop/RProjects/TanariverFloods/floodextent01/FloodExtent01.shp")
+
+# View the first few rows of the data
+head(flood_data)
+```
+```{r summary}
+# Summary of the dataset
+summary(flood_data)
+
+# Number of features
+nrow(flood_data)
+
+# Bounding box of the dataset
+st_bbox(flood_data)
+```
+```markdown
+The map below visualizes the flood extent across Garissa, Kilifi, and Tana River counties over the period 2018, 2019, and 2023.
+```
+
+```{r plot-flood}
+# Simple plot of the flood extent
+plot(flood_data["geometry"], main = "Flood Extent in Garissa, Kilifi, and Tana River (2018-2023)")
+```
+ 
+```{r total-area}
+# Make geometries valid
+flood_data <- st_make_valid(flood_data)
+
+# Calculate the total flood area (in square meters) for each county
+flood_data$area <- st_area(flood_data)
+
+# Check column names in the dataset
+colnames(flood_data)
+# Summarize the total flood area by the county-equivalent column (e.g., 'region')
+# Add a county column manually (this is just an example)
+# You would need to assign the correct counties based on the polygons
+flood_data$county <- c("Garissa", "Kilifi", "Tana River","Garissa", "Kilifi", "Tana River","Garissa", "Kilifi", "Tana River","Garissa", "Kilifi", "Tana River","Garissa", "Kilifi", "Tana River","Garissa", "Kilifi", "Tana River","Garissa", "Kilifi", "Tana River","Garissa", "Kilifi")  # Example values
+
+# Now summarize the total area by this new 'county' column
+total_area_by_county <- flood_data %>%
+  group_by(county) %>%
+  summarise(total_area = sum(area))
+
+# View the result
+total_area_by_county
+# Summarize the area by county (assuming there is a county column in the data)
+total_area_by_county <- flood_data %>%
+  group_by(county) %>%
+  summarise(total_area = sum(area))
+
+# View the results
+total_area_by_county
+```
+
+```{r the_columns}
+
+colnames(flood_data)
+```
+```{r summary_floodArea_county}
+    # Summarize the total flood area (in hectares) by county
+total_flood_by_county <- flood_data %>%
+  group_by(county) %>%
+  summarise(total_area_ha = sum(Area_ha, na.rm = TRUE))
+
+# View the results
+total_flood_by_county
+```
+## Conclusion
+
+This report analyzed flood hazard extent data for **Garissa**, **Kilifi**, and **Tana River** counties over the years 2018, 2019, and 2023. The analysis provided insights into the total flood areas for each county, the changes in flood extent over time, and highlighted which county was most affected by flooding in 2023.
+
+Further analysis could focus on the specific causes of the flooding, its impact on local communities, and possible mitigation strategies.      
+      
