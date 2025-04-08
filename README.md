@@ -3,8 +3,8 @@
 This project analyses flood hazard extents for the counties of Garissa, Kilifi, and Tana River in Kenya for 2018, 2019, and 2023. The flood data is based on vector-format information from sources such as UNOSAT. The analysis helps to understand flood patterns over the years, contributing to disaster management and mitigation strategies.
 
 **Data Sources**
-UNOSAT: Satellite-based flood extent data
-Other Merged Data: Additional sources for comprehensive analysis
+UNOSAT's satellite-based flood extent data
+Additional sources for analysis
 
 **Project Structure**
 R Markdown File: Flood_Hazard_Extent_Garissa_Kilifi_TanaRiver_2018_2019_2023.Rmd contains the data cleaning, analysis, and visualization.
